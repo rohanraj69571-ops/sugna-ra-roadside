@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b3b67">
+<title>Sugna RA Roadside | Roadside Mechanic</title>
+<style>
+:root{--navy:#0b3b67;--blue:#1267a5;--light:#eef6fc;--ink:#142333;--muted:#5b6b7b;--green:#16834a;--border:#d9e3ec}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:#f5f8fb}
+header{background:linear-gradient(130deg,#092f53,#1267a5);color:white;padding:22px 16px 26px}
+.wrap{max-width:980px;margin:auto}.brand{display:flex;align-items:center;gap:12px}.logo{width:46px;height:46px;border-radius:14px;background:white;color:var(--navy);display:grid;place-items:center;font-weight:900;font-size:20px}
+h1{font-size:23px;margin:0}header p{margin:8px 0 0;color:#e1f1ff;font-size:14px}
+nav{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+button,.btn{border:0;border-radius:10px;padding:12px 15px;font-size:15px;font-weight:700;cursor:pointer}
+nav button{background:#ffffff1b;color:white;border:1px solid #ffffff55}
+nav button.active{background:white;color:var(--navy)}
+main{padding:20px 14px 48px}.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:16px;align-items:stretch}
+.card{background:white;border:1px solid var(--border);border-radius:16px;padding:18px;box-shadow:0 5px 20px #12304408}
+h2{font-size:20px;margin:0 0 8px}h3{font-size:16px;margin:0 0 12px}.muted{color:var(--muted);font-size:14px;line-height:1.5}
+.vehicles{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0}
+.vehicle{border:1px solid var(--border);border-radius:12px;padding:12px 4px;text-align:center;background:white;cursor:pointer;font-size:13px}
+.vehicle span{display:block;font-size:25px;margin-bottom:5px}.vehicle.selected{border:2px solid var(--blue);background:#eef7ff}
+label{display:block;font-size:13px;font-weight:700;margin:12px 0 6px}
+input,select,textarea{width:100%;padding:12px;border:1px solid #cbd8e4;border-radius:10px;font:inherit;background:white;color:var(--ink)}
+textarea{min-height:82px;resize:vertical}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.primary{background:var(--blue);color:white;width:100%;margin-top:14px}.secondary{background:var(--light);color:var(--navy);border:1px solid var(--border)}
+.note{background:#fff8e7;border:1px solid #f0dca6;padding:12px;border-radius:10px;font-size:13px;line-height:1.5;margin-top:12px}
+.success{background:#eaf8ef;border:1px solid #b9e6c8;padding:12px;border-radius:10px;margin-top:12px;overflow-wrap:anywhere}
+.hidden{display:none!important}.section{margin-top:16px}.statgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}.stat{background:#f0f7fd;border-radius:12px;padding:12px}.stat strong{display:block;font-size:24px;color:var(--navy)}
+.request{border:1px solid var(--border);border-radius:12px;padding:14px;margin-top:10px}.requesthead{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}.pill{font-size:12px;border-radius:30px;padding:4px 9px;background:#e8f3ff;color:#14558b;font-weight:700}.request p{margin:7px 0;font-size:14px}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.actions button{font-size:13px;padding:9px 11px}.footer{text-align:center;color:var(--muted);font-size:12px;padding:18px}
+a{color:var(--blue)}.tiny{font-size:12px;color:var(--muted)}
+@media(max-width:700px){.hero{grid-template-columns:1fr}.vehicles{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}.statgrid{grid-template-columns:repeat(3,1fr)}h1{font-size:20px}}
+
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:12px}
+.contact-btn{width:100%;min-height:46px;color:white;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:7px;border-radius:10px;padding:12px 10px;font-size:14px;font-weight:700}
+.contact-call{background:#1267a5}.contact-wa{background:#16834a}.contact-email{background:#6b4bc3}
+.contact-detail{font-size:13px;overflow-wrap:anywhere;color:var(--muted);margin:7px 0}
+@media(max-width:700px){.contact-grid{grid-template-columns:1fr}}
+
+
+.quick-contact{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-top:14px;padding:12px 14px;border:1px solid #ffffff55;border-radius:12px;background:#ffffff12;color:#fff}
+.quick-contact strong{font-size:15px}.quick-contact span{font-size:13px;color:#e1f1ff}
+.quick-contact a{display:inline-block;text-decoration:none;background:#fff;color:#0b3b67;border-radius:8px;padding:8px 10px;font-size:13px;font-weight:800}
+.quick-contact a.quick-wa{background:#16834a;color:#fff}
+.footer-contact{margin:0 auto 12px;max-width:980px;padding:14px;border-radius:12px;background:#0b3b67;color:white;text-align:center}
+.footer-contact .quick-contact{justify-content:center;margin-top:8px;background:transparent;border:0;padding:0}
+@media(max-width:700px){.quick-contact{align-items:stretch;flex-direction:column}.quick-contact a{text-align:center}.footer-contact .quick-contact{flex-direction:column}}
+
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="brand"><div class="logo">RA</div><div><h1>Sugna RA Roadside</h1><div style="font-size:13px;color:#d9edff">Bihar Roadside Assistance</div></div></div>
+    <p>गाड़ी रास्ते में खराब हो गई? मिस्त्री की मदद के लिए रिक्वेस्ट भेजें।</p>
+    <nav>
+      <button class="active" data-tab="customer">मिस्त्री बुलाएँ</button>
+      <button data-tab="mechanic">मिस्त्री रजिस्ट्रेशन</button>
+      <button data-tab="admin">Admin Panel (Demo)</button>
+    </nav>
+
+<div class="quick-contact">
+  <strong>हमसे संपर्क करें</strong>
+  <span>मिस्त्री की मदद या बुकिंग के लिए</span>
+  <a href="tel:+917781880041">📞 +91 77818 80041</a>
+  <a href="tel:+919708443487">📞 +91 97084 43487</a>
+  <a class="quick-wa" href="https://wa.me/917781880041?text=Namaste%2C%20mujhe%20roadside%20mechanic%20ki%20madad%20chahiye." target="_blank" rel="noopener noreferrer">WhatsApp करें</a>
+</div>
+
+  </div>
+</header>
+<main class="wrap">
+<section id="customer" class="tab">
+  <div class="hero">
+    <div class="card">
+      <h2>मिस्त्री की मदद पाएँ</h2>
+      <p class="muted">वाहन और खराबी की जानकारी भरें। हमारी टीम आपसे संपर्क करेगी।</p>
+      <form id="bookingForm">
+        <label>आपका वाहन चुनें</label>
+        <div class="vehicles">
+          <button type="button" class="vehicle selected" data-vehicle="Bike"><span>🏍️</span>बाइक</button>
+          <button type="button" class="vehicle" data-vehicle="Car"><span>🚗</span>कार</button>
+          <button type="button" class="vehicle" data-vehicle="Bus"><span>🚌</span>बस</button>
+          <button type="button" class="vehicle" data-vehicle="Truck"><span>🚚</span>ट्रक</button>
+        </div>
+        <input type="hidden" id="vehicle" value="Bike">
+        <div class="grid2">
+          <div><label for="custName">आपका नाम *</label><input id="custName" required placeholder="पूरा नाम"></div>
+          <div><label for="phone">मोबाइल नंबर *</label><input id="phone" required inputmode="numeric" pattern="[0-9]{10}" maxlength="10" placeholder="10 अंकों का नंबर"></div>
+        </div>
+        <label for="location">लोकेशन / नजदीकी जगह *</label>
+        <input id="location" required placeholder="जैसे: पटना-बख्तियारपुर रोड, पेट्रोल पंप के पास">
+        <button type="button" class="secondary" id="locBtn" style="margin-top:8px">📍 मेरी लोकेशन भरें</button>
+        <label for="district">जिला *</label>
+        <select id="district" required>
+          <option value="">जिला चुनें</option>
+          <option>अररिया</option><option>अरवल</option><option>औरंगाबाद</option><option>बाँका</option><option>बेगूसराय</option><option>भागलपुर</option><option>भोजपुर</option><option>बक्सर</option><option>दरभंगा</option><option>पूर्वी चंपारण</option><option>गया</option><option>गोपालगंज</option><option>जमुई</option><option>जहानाबाद</option><option>कैमूर</option><option>कटिहार</option><option>खगड़िया</option><option>किशनगंज</option><option>लखीसराय</option><option>मधेपुरा</option><option>मधुबनी</option><option>मुंगेर</option><option>मुजफ्फरपुर</option><option>नालंदा</option><option>नवादा</option><option>पटना</option><option>पूर्णिया</option><option>रोहतास</option><option>सहरसा</option><option>समस्तीपुर</option><option>सारण</option><option>शेखपुरा</option><option>शिवहर</option><option>सीतामढ़ी</option><option>सीवान</option><option>सुपौल</option><option>वैशाली</option><option>पश्चिमी चंपारण</option>
+        </select>
+        <label for="problem">गाड़ी में क्या खराबी है? *</label>
+        <textarea id="problem" required placeholder="जैसे: टायर पंचर, इंजन स्टार्ट नहीं हो रहा, बैटरी डाउन..."></textarea>
+        <label for="photo">खराबी की फोटो (वैकल्पिक)</label><input id="photo" type="file" accept="image/*">
+        <button class="primary" type="submit">मिस्त्री की रिक्वेस्ट भेजें</button>
+        <div id="bookingMsg" aria-live="polite"></div>
+      </form>
+    </div>
+    <div class="card">
+      <h2>कैसे काम करेगा?</h2>
+      <p>1. अपनी जानकारी भेजें।</p><p>2. Admin आपसे संपर्क करके मिस्त्री तय करेगा।</p><p>3. मिस्त्री पहुँचने पर OTP से काम शुरू होने की पुष्टि होगी।</p>
+      <div class="note"><strong>सुरक्षा:</strong> हाईवे पर वाहन खराब होने पर सुरक्षित जगह रुकें, हैज़र्ड लाइट चालू करें और ट्रैफिक से दूर रहें। आपातकाल में स्थानीय आपात सेवा से संपर्क करें।</div>
+      
+      <div class="section" id="contact-us">
+        <h3>हमसे संपर्क करें</h3>
+        <p class="muted">मिस्त्री की मदद या बुकिंग के लिए सीधे संपर्क करें।</p>
+        <div class="contact-grid">
+          <a class="contact-btn contact-call" href="tel:+917781880041">📞 Call Now · 1</a>
+          <a class="contact-btn contact-call" href="tel:+919708443487">📞 Call Now · 2</a>
+          <a class="contact-btn contact-wa" href="https://wa.me/917781880041?text=Namaste%2C%20mujhe%20roadside%20mechanic%20ki%20madad%20chahiye." target="_blank" rel="noopener noreferrer">WhatsApp Chat</a>
+          <a class="contact-btn contact-email" href="mailto:anshuy1989@gmail.com,rohanrajra34@gmail.com?subject=Sugna%20RA%20Roadside%20Assistance">Email Us</a>
+        </div>
+        <div class="contact-detail"><strong>मोबाइल:</strong> +91 77818 80041 · +91 97084 43487</div>
+        <div class="contact-detail"><strong>WhatsApp:</strong> +91 77818 80041</div>
+        <div class="contact-detail"><strong>ईमेल:</strong> anshuy1989@gmail.com · rohanrajra34@gmail.com</div>
+      </div>
+
+      <div class="section"><h3>UPI पेमेंट</h3><p class="muted">अभी यह डेमो है। वास्तविक भुगतान लेने के लिए अपना सत्यापित UPI ID/पेमेंट गेटवे जोड़ना होगा।</p><button class="secondary" type="button" id="payBtn">UPI पेमेंट निर्देश</button><div id="payMsg" class="tiny" style="margin-top:8px"></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="mechanic" class="tab hidden">
+  <div class="card">
+    <h2>मिस्त्री रजिस्ट्रेशन</h2><p class="muted">यह फॉर्म डेमो के लिए है। जानकारी इस ब्राउज़र में सेव होगी।</p>
+    <form id="mechanicForm">
+      <div class="grid2"><div><label>नाम *</label><input id="mechName" required></div><div><label>मोबाइल नंबर *</label><input id="mechPhone" required pattern="[0-9]{10}" maxlength="10" inputmode="numeric"></div></div>
+      <div class="grid2"><div><label>किस वाहन के मिस्त्री हैं? *</label><select id="mechType" required><option value="">चुनें</option><option>Bike</option><option>Car</option><option>Bus</option><option>Truck</option><option>Multiple</option></select></div><div><label>जिला *</label><input id="mechDistrict" required placeholder="जिला"></div></div>
+      <label>अनुभव और सर्विस क्षेत्र</label><textarea id="mechExperience" placeholder="अनुभव, रोड/इलाके, उपलब्ध समय"></textarea>
+      <button class="primary">रजिस्ट्रेशन भेजें</button><div id="mechanicMsg"></div>
+    </form>
+  </div>
+</section>
+
+<section id="admin" class="tab hidden">
+  <div class="card" id="adminLogin">
+    <h2>Admin Login (Demo)</h2><p class="muted">यह केवल लोकल डेमो है—इसे इंटरनेट पर असली एडमिन सुरक्षा के रूप में इस्तेमाल न करें।</p>
+    <label>डेमो पासवर्ड</label><input id="adminPass" type="password" placeholder="डेमो पासवर्ड">
+    <button class="primary" id="loginBtn">लॉगिन</button><p class="tiny">डेमो पासवर्ड: road123 (केवल परीक्षण के लिए)</p><div id="loginMsg"></div>
+  </div>
+  <div id="adminDash" class="hidden">
+    <div class="card">
+      <div class="requesthead"><div><h2>Admin Dashboard</h2><p class="muted">रिक्वेस्ट, मिस्त्री और OTP का डेमो प्रबंधन</p></div><button class="secondary" id="logoutBtn">लॉगआउट</button></div>
+      <div class="statgrid"><div class="stat"><span class="tiny">कुल रिक्वेस्ट</span><strong id="totalCount">0</strong></div><div class="stat"><span class="tiny">नई रिक्वेस्ट</span><strong id="newCount">0</strong></div><div class="stat"><span class="tiny">मिस्त्री</span><strong id="mechCount">0</strong></div></div>
+      <div class="requesthead"><h3>ग्राहक रिक्वेस्ट</h3><button class="secondary" id="refreshBtn">रिफ्रेश</button></div><div id="requestList"></div>
+    </div>
+    <div class="card section"><h3>मिस्त्री रजिस्ट्रेशन की सूची</h3><div id="mechanicList"></div></div>
+    <div class="note">महत्वपूर्ण: यह डेमो डेटा केवल उसी ब्राउज़र/डिवाइस में रहता है। असली ग्राहक और मिस्त्री के अलग-अलग फोन पर काम करने के लिए Firebase/सर्वर डेटाबेस, सुरक्षित एडमिन लॉगिन और सर्वर-साइड OTP जोड़ना जरूरी है।</div>
+  </div>
+</section>
+</main>
+<div class="footer-contact">
+  <strong>हमसे संपर्क करें</strong>
+  <div style="font-size:13px;margin-top:5px">मिस्त्री की मदद या बुकिंग के लिए</div>
+
+<div class="quick-contact">
+  <strong>हमसे संपर्क करें</strong>
+  <span>मिस्त्री की मदद या बुकिंग के लिए</span>
+  <a href="tel:+917781880041">📞 +91 77818 80041</a>
+  <a href="tel:+919708443487">📞 +91 97084 43487</a>
+  <a class="quick-wa" href="https://wa.me/917781880041?text=Namaste%2C%20mujhe%20roadside%20mechanic%20ki%20madad%20chahiye." target="_blank" rel="noopener noreferrer">WhatsApp करें</a>
+</div>
+
+</div>
+<div class="footer">© <span id="year"></span> Sugna RA Roadside · Demo version</div>
+<script>
+const $ = id => document.getElementById(id);
+const read = key => { try { return JSON.parse(localStorage.getItem(key) || "[]"); } catch { return []; } };
+const write = (key,val) => localStorage.setItem(key, JSON.stringify(val));
+let chosenVehicle = "Bike";
+document.querySelectorAll("[data-tab]").forEach(btn => btn.addEventListener("click", () => {
+  document.querySelectorAll("[data-tab]").forEach(b=>b.classList.toggle("active",b===btn));
+  document.querySelectorAll(".tab").forEach(s=>s.classList.toggle("hidden",s.id!==btn.dataset.tab));
+}));
+document.querySelectorAll("[data-vehicle]").forEach(btn=>btn.addEventListener("click",()=>{
+  document.querySelectorAll("[data-vehicle]").forEach(b=>b.classList.toggle("selected",b===btn));
+  chosenVehicle=btn.dataset.vehicle;$("vehicle").value=chosenVehicle;
+}));
+$("locBtn").addEventListener("click",()=>{
+  if(!navigator.geolocation){alert("इस ब्राउज़र में लोकेशन सुविधा उपलब्ध नहीं है।");return;}
+  navigator.geolocation.getCurrentPosition(pos=>{$("location").value=`Latitude: ${pos.coords.latitude.toFixed(6)}, Longitude: ${pos.coords.longitude.toFixed(6)}`;},()=>alert("लोकेशन नहीं मिली। ब्राउज़र की location permission चालू करें।"));
+});
+$("bookingForm").addEventListener("submit", e=>{
+  e.preventDefault();
+  const requests=read("sugna_requests");
+  const req={id:"SR"+Date.now().toString().slice(-8),name:$("custName").value.trim(),phone:$("phone").value.trim(),vehicle:chosenVehicle,location:$("location").value.trim(),district:$("district").value,problem:$("problem").value.trim(),status:"नई रिक्वेस्ट",mechanic:"",otp:"",created:new Date().toLocaleString("hi-IN")};
+  requests.unshift(req);write("sugna_requests",requests);
+  $("bookingMsg").innerHTML=`<div class="success"><strong>डेमो रिक्वेस्ट सेव हुई!</strong><br>रिक्वेस्ट ID: ${req.id}<br>यह जानकारी केवल इसी ब्राउज़र में सेव है। वास्तविक वेबसाइट पर सर्वर/डेटाबेस जोड़ना होगा।</div>`;
+  $("bookingForm").reset();chosenVehicle="Bike";$("vehicle").value="Bike";
+  document.querySelectorAll("[data-vehicle]").forEach((b,i)=>b.classList.toggle("selected",i===0));
+});
+$("mechanicForm").addEventListener("submit",e=>{
+  e.preventDefault();const arr=read("sugna_mechanics");
+  arr.unshift({name:$("mechName").value.trim(),phone:$("mechPhone").value.trim(),type:$("mechType").value,district:$("mechDistrict").value.trim(),experience:$("mechExperience").value.trim(),created:new Date().toLocaleString("hi-IN")});
+  write("sugna_mechanics",arr);$("mechanicMsg").innerHTML='<div class="success">डेमो रजिस्ट्रेशन सेव हो गया।</div>';$("mechanicForm").reset();
+});
+$("payBtn").addEventListener("click",()=>{$("payMsg").textContent="अपना UPI ID और तय राशि/पेमेंट गेटवे जोड़ने के बाद ही यहाँ असली भुगतान लिया जा सकेगा। अभी कोई भुगतान न करें।";});
+$("loginBtn").addEventListener("click",()=>{
+  if($("adminPass").value==="road123"){$("adminLogin").classList.add("hidden");$("adminDash").classList.remove("hidden");renderAdmin();}
+  else $("loginMsg").textContent="पासवर्ड सही नहीं है।";
+});
+$("logoutBtn").addEventListener("click",()=>{$("adminDash").classList.add("hidden");$("adminLogin").classList.remove("hidden");$("adminPass").value="";});
+$("refreshBtn").addEventListener("click",renderAdmin);
+function renderAdmin(){
+ const reqs=read("sugna_requests"),mechs=read("sugna_mechanics");
+ $("totalCount").textContent=reqs.length;$("newCount").textContent=reqs.filter(r=>r.status==="नई रिक्वेस्ट").length;$("mechCount").textContent=mechs.length;
+ $("requestList").innerHTML=reqs.length?reqs.map(r=>`<div class="request"><div class="requesthead"><strong>${esc(r.id)} · ${esc(r.vehicle)}</strong><span class="pill">${esc(r.status)}</span></div><p><b>ग्राहक:</b> ${esc(r.name)} · ${esc(r.phone)}</p><p><b>जगह:</b> ${esc(r.location)}, ${esc(r.district)}</p><p><b>समस्या:</b> ${esc(r.problem)}</p><p class="tiny">समय: ${esc(r.created)}</p>
+ <label>मिस्त्री असाइन करें</label><select id="mech-${r.id}"><option value="">मिस्त्री चुनें</option>${mechs.map(m=>`<option value="${esc(m.name)}">${esc(m.name)} · ${esc(m.type)} · ${esc(m.district)}</option>`).join("")}</select>
+ <div class="actions"><button class="secondary" onclick="assignMech('${r.id}')">मिस्त्री असाइन</button><button class="secondary" onclick="makeOtp('${r.id}')">OTP बनाएं</button><button class="secondary" onclick="setStatus('${r.id}','काम शुरू')">OTP के बाद काम शुरू</button><button class="secondary" onclick="setStatus('${r.id}','काम पूरा')">काम पूरा</button></div><div id="otp-${r.id}" class="tiny" style="margin-top:8px">${r.otp?("डेमो OTP: "+esc(r.otp)):"OTP अभी नहीं बना"}</div></div>`).join(""):'<p class="muted">अभी कोई रिक्वेस्ट नहीं आई है।</p>';
+ $("mechanicList").innerHTML=mechs.length?mechs.map(m=>`<div class="request"><strong>${esc(m.name)}</strong><p>${esc(m.phone)} · ${esc(m.type)} · ${esc(m.district)}</p><p class="tiny">${esc(m.experience||"अनुभव नहीं दिया")}</p></div>`).join(""):'<p class="muted">अभी कोई मिस्त्री रजिस्टर नहीं हुआ है।</p>';
+}
+function assignMech(id){const arr=read("sugna_requests"),sel=$("mech-"+id);const r=arr.find(x=>x.id===id);if(r&&sel.value){r.mechanic=sel.value;r.status="मिस्त्री असाइन";write("sugna_requests",arr);renderAdmin();}else alert("पहले मिस्त्री चुनें।");}
+function makeOtp(id){const arr=read("sugna_requests"),r=arr.find(x=>x.id===id);if(r){r.otp=String(Math.floor(100000+Math.random()*900000));r.status="मिस्त्री रास्ते में";write("sugna_requests",arr);renderAdmin();}}
+function setStatus(id,status){const arr=read("sugna_requests"),r=arr.find(x=>x.id===id);if(!r)return;if(status==="काम शुरू"&&!r.otp){alert("पहले OTP बनाएं और ग्राहक से पुष्टि करें।");return;}if(status==="काम शुरू"){const entered=prompt("ग्राहक द्वारा बताया गया OTP दर्ज करें:");if(entered!==r.otp){alert("OTP गलत है।");return;}}r.status=status;write("sugna_requests",arr);renderAdmin();}
+function esc(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+$("year").textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
